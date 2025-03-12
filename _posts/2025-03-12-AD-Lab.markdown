@@ -1,0 +1,66 @@
+---
+layout: post
+title:  "Simple AD Lab setup using virtualization"
+categories: Homelab Projects
+---
+This week I've been setting up a lab for Windows Active Directory. This will be handy for all kinds of testing and learning. With the extreme ubiquity of Windows it's definitely worth my time and I know I'll come back to this lab frequently in the future.
+
+First I've grabbed the Windows Enterprise Evaluation images available for free from Microsoft. [Microsoft Server 2022](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) , [Microsoft WIndows 10](https://www.microsoft.com/en-in/evalcenter/evaluate-windows-10-enterprise) . I've gone ahead and installed both on Virtualbox. For the moment I'm just setting up one user machine and one server, I can always add more as needed later.
+
+![](/assets/screenshots/WinAD/2025-03-10_02-40.png)
+
+Next I boot up the server and start install Active Directory Domain Services. This is a simple setup and I don't need any of the less commonly used options at the moment.
+![](/assets/screenshots/WinAD/2025-03-10_02-49.png)
+
+I get ahead of myself here and don't install DNS with the AD services installation wizard and have to install it separately. A DNS server is needed for AD clients to communicate with the server. In this case I will run it on the same server, that makes it easy.
+
+![](/assets/screenshots/WinAD/2025-03-11_02-58.png)
+Once the DNS server is installed I configure the Active Directory domain controller. 
+![](/assets/screenshots/WinAD/2025-03-10_02-51.png)
+
+I add a single forest and name the domain adtest.local
+![](/assets/screenshots/WinAD/2025-03-10_02-54.png)
+
+By default Virtualbox does not allow intra-VM communications, this is good for security but I will need these VMs to communicate. I add a second adapter to the server and attach it to the virtual internal network. I do the same for the user PC.
+
+![](/assets/screenshots/WinAD/2025-03-11_21-45.png)
+
+The windows server will need a static IP on this adapter as it will be the DNS server. I've also added it as it's own DNS server in the manual configuration, allowing it to be configured. A little funny but the server won't be able to communicate with it's own DNS server for configuration otherwise.
+
+For the user PC I do the same, setting the server as it's DNS and also giving it a static IP. For the moment I don't have DHCP setup and manual configuration isn't a burden for such a small number of machines.
+
+![](/assets/screenshots/WinAD/2025-03-11_21-48.png)
+
+I should now be able to join the domain from the user PC, I give it a test and am happy to see it's all working perfectly. 
+
+![](/assets/screenshots/WinAD/2025-03-11_03-53.png)
+
+I confirm on the server side that the computer has been added to the domain. 
+
+![](/assets/screenshots/WinAD/2025-03-11_04-07.png)
+
+Next I add a test user from the admin console. I make this user part of the default domain users group, I'll add more users and groups later for more testing.
+
+![](/assets/screenshots/WinAD/2025-03-11_04-11.png)
+
+Checking the account from the user PC I am able to log in and it all looks good. 
+
+![](/assets/screenshots/WinAD/2025-03-11_04-17.png)
+
+Next I want to make a simple group policy, I choose to apply it to the entire domain. I will enforce a specific wallpaper and see if it functions.
+
+![](/assets/screenshots/WinAD/2025-03-11_04-40.png)
+
+I select the administrative templates an find the template for desktop wallpapers.
+
+![](/assets/screenshots/WinAD/2025-03-11_04-43.png)
+
+I'm just going one of the wallpapers from the windows defaults for this test. I find the path for one of the wallpapers that comes with windows but isn't the blue one that is set by default and enter into the wallpaper policy.
+
+![](/assets/screenshots/WinAD/2025-03-11_04-55.png)
+
+With that policy applied I log in again on the user PC and find the wallpaper has changed. The policy has been properly applied.
+
+![](/assets/screenshots/WinAD/2025-03-11_04-56.png)
+
+Setup was smooth and I'm happy with the results. I now have a perfect setup for future projects. Next up I'll probably look at some more complex user/group configuration, group policies, network storage or DHCP.
