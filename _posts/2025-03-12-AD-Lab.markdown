@@ -5,7 +5,7 @@ categories: Homelab Projects
 ---
 This week I've been setting up a lab for Windows Active Directory. This will be handy for all kinds of testing and learning. With the extreme ubiquity of Windows it's definitely worth my time and I know I'll come back to this lab frequently in the future.
 
-First I've grabbed the Windows Enterprise Evaluation images available for free from Microsoft. [Microsoft Server 2022](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) , [Microsoft WIndows 10](https://www.microsoft.com/en-in/evalcenter/evaluate-windows-10-enterprise) . I've gone ahead and installed both on Virtualbox. For the moment I'm just setting up one user machine and one server, I can always add more as needed later.
+First I've grabbed the Windows Enterprise Evaluation images available for free from Microsoft. [Microsoft Server 2022](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) , [Microsoft Windows 10](https://www.microsoft.com/en-in/evalcenter/evaluate-windows-10-enterprise) . I've gone ahead and installed both on Virtualbox. For the moment I'm just setting up one user machine and one server, I can always add more as needed later.
 
 ![](/assets/screenshots/WinAD/2025-03-10_02-40.png)
 
@@ -27,7 +27,7 @@ By default Virtualbox does not allow intra-VM communications, this is good for s
 
 The windows server will need a static IP on this adapter as it will be the DNS server. I've also added it as it's own DNS server in the manual configuration, allowing it to be configured. A little funny but the server won't be able to communicate with it's own DNS server for configuration otherwise.
 
-For the user PC I do the same, setting the server as it's DNS and also giving it a static IP. For the moment I don't have DHCP setup and manual configuration isn't a burden for such a small number of machines.
+For the user PC I do the same, setting the server as DNS and also giving it a static IP. For the moment I don't have DHCP setup and manual configuration isn't a burden for such a small number of machines.
 
 ![](/assets/screenshots/WinAD/2025-03-11_21-48.png)
 

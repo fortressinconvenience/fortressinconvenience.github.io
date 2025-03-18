@@ -71,7 +71,7 @@ Get-WmiObject win32_service | select name,description
 Next I selected the name as well, this was a huge improvement but introduced a new problem. The text of the descriptions does not wrap by default, cutting off the full descriptions.
 ![[2025-03-04_03-00_1.png]]
 
-Theres probably a few ways to take that output and format it but I found Get-WmiObject win32_service | select name,description | format-table -wrap . This formatted the text to wrap around allowing me to read the full descriptions and solve the puzzle.
+There's probably a few ways to take that output and format it but I found Get-WmiObject win32_service | select name,description | format-table -wrap . This formatted the text to wrap around allowing me to read the full descriptions and solve the puzzle.
 ![](/assets/screenshots/UnderTheWire/2025-03-04_03-01.png)
 
 ### Century 11

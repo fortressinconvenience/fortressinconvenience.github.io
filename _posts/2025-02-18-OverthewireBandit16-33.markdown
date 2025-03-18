@@ -11,9 +11,9 @@ I've been continuing to work on the Bandit levels when I had free time and final
 
 My favourite level and ultimately the most challenging was level 25, this took some serious lateral thinking and took me by far the longest to solve. The solution is simple but extremely unconventional and I wish they had provided another hint or two.
 
-If you've encountered this because of my mention of level 25, I will not spoil the solution but I will provide a hint under the following spoiler tag:
+If you've encountered this because of my mention of level 25, I will not spoil the solution but I will provide a hint in the next section:
 
-[spoiler]Think about the "more" command that is being executed when you log into bandit26. Consider why it operates the way it does and how you can influence it's behaviour. Consider what tools you are able to access from within "more" and how you are able to use them. The solution may not work in some terminal emulators. [/spoiler]
+Think about the "more" command that is being executed when you log into bandit26. Consider why it operates the way it does and how you can influence it's behaviour. Consider what tools you are able to access from within "more" and how you are able to use them. The solution may not work in some terminal emulators.
 
 Again a few tools I found interesting and useful while exploring these levels.
 ### diff
