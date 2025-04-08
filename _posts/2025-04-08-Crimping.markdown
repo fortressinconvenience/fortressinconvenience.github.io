@@ -1,0 +1,26 @@
+---
+layout: post
+title:  "Crimping"
+categories: Homelab Projects
+---
+I wanted to clean up some of the connections in my home server rack this week, not all of my twisted pair was perfectly sized. It looked a bit messier than I'd like and so it's time to crimp some cables to the exact lengths I need and tidy it up.
+
+### The Tools
+I've got two styles of RJ45 today, both the standard style and the loading bar style.  The standard is on the right and you can see the tray which guides the wires is fixed inside. These are a little trickier to crimp as you will need to line the wires up in the correct order and insert them with one hand while keeping them in place. The load bar style on the left allows you to do the trickier part with both hands before loading it into the connector.
+![](/assets/screenshots/Crimping/PXL_20250406_074831661.webp)
+
+Here I've got my crimping tool, a stripped length of twister pair, my connectors and a cable tester.
+![](/assets/screenshots/Crimping/PXL_20250406_075736403.MP.webp)
+This is the loading bar in action, I've gone with the 568B wiring standard here. 
+![](/assets/screenshots/Crimping/PXL_20250406_110208686.webp)
+After finishing crimps on both ends I use the cable tester. This is a very simple tester and it only tests continuity. For a straight through cable like I've made here I just need to make sure the lights on both ends light up at the same time and in the same order.
+
+If I was making a crossover cable or a rollover cable I would be looking for the appropriate light patterns. 
+![](/assets/screenshots/Crimping/PXL_20250406_114136283.webp)
+
+### Crossover cables: A quick word
+To my annoyance when I was taking both the CCNA and Comptia N+ certifications I found conflicting information about crossover cables. Endorsed study material for both exams describes a crossover cable as a cable wired 568A on one end and 568B on the other. Other sources suggested this wasn't true and it left me wondering what answer they would want on the exams.
+
+Ultimately the cable described here is a half-crossover and it does function as a crossover cable for speeds up to 100M. For the vast majority applications that require a crossover cable, this is will work perfectly. 
+
+A full crossover cable functions at speeds up to 1G, the difference here is that the blue and brown pairs are also swapped. 
